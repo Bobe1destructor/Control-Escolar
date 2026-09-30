@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Control Escolar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Botón de Cerrar Sesión -->
+    <div style="max-width: 800px; margin: 20px auto; text-align: right;">
+        <button onclick="cerrarSesion()">Cerrar Sesión</button>
+    </div>
+    
+    <!-- Módulo 1: Materias -->
+    <div class="contenedor">
+        <h2>Catálogo de Materias</h2>
+        <form id="form-materia">
+            <input type="text" id="clave" placeholder="Clave (ej. CS-102)" required>
+            <input type="text" id="nombre" placeholder="Nombre de la materia" required>
+            <input type="number" id="creditos" placeholder="Créditos" required>
+            <button type="submit">Guardar Materia</button>
+        </form>
+        <table>
+            <thead><tr><th>ID</th><th>Clave</th><th>Nombre</th><th>Créditos</th></tr></thead>
+            <tbody id="tabla-materias"></tbody>
+        </table>
+    </div>
+
+    <!-- Módulo 2: Alumnos -->
+    <div class="contenedor">
+        <h2>Directorio de Alumnos</h2>
+        <form id="form-alumno">
+            <input type="text" id="matricula" placeholder="Matrícula (ej. E25081155)" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <input type="text" id="nombre-alumno" placeholder="Nombre(s)" required>
+            <input type="text" id="apellidos-alumno" placeholder="Apellidos" required>
+            <button type="submit">Guardar Alumno</button>
+        </form>
+        <table>
+            <thead><tr><th>ID</th><th>Matrícula</th><th>Nombre</th><th>Apellidos</th></tr></thead>
+            <tbody id="tabla-alumnos"></tbody>
+        </table>
+    </div>
+
+    <!-- Módulo 3: Calificaciones -->
+    <div class="contenedor">
+        <h2>Registro de Calificaciones</h2>
+        <form id="form-calificacion">
+            <input type="number" id="id-alumno" placeholder="ID Alumno (ej. 1)" required>
+            <input type="number" id="id-materia" placeholder="ID Materia (ej. 2)" required>
+            <input type="text" id="ciclo" placeholder="Ciclo (ej. 2026-B)" required>
+            <input type="number" id="valor" step="0.1" placeholder="Calificación final" required>
+            <button type="submit">Guardar Calificación</button>
+        </form>
+        <table>
+            <thead><tr><th>Folio (ID)</th><th>ID Alumno</th><th>ID Materia</th><th>Ciclo</th><th>Calificación</th></tr></thead>
+            <tbody id="tabla-calificaciones"></tbody>
+        </table>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

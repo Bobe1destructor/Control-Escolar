@@ -1,0 +1,162 @@
+/* --- VARIABLES DE COLOR Y ESTILO (TEMA AZUL CIELO) --- */
+:root {
+    --bg-color: #f0f9ff; /* Fondo general con un toque azul cielo muy suave */
+    --container-bg: #ffffff; /* Cajas blancas para que el contenido resalte */
+    --text-main: #0f172a; /* Casi negro azulado para mejor lectura */
+    --text-muted: #64748b; /* Gris azulado para textos secundarios */
+    --accent: #0ea5e9; /* Azul cielo vibrante principal */
+    --accent-hover: #0284c7; /* Azul cielo un poco más intenso para botones (hover) */
+    --border-color: #bae6fd; /* Bordes sutiles en tono azul cielo */
+    --radius: 8px;
+}
+
+/* --- ESTILOS GENERALES --- */
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    padding: 40px 20px;
+    line-height: 1.5;
+    margin: 0;
+    animation: aparecerSuave 0.4s ease-out forwards; /* Animación de entrada general */
+}
+
+/* --- CONTENEDORES (Tarjetas de Index y Estudiantes) --- */
+.contenedor {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    background: var(--container-bg);
+    padding: 30px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--accent); /* Detalle azul cielo en la parte superior */
+    box-shadow: 0 4px 6px -1px rgba(14, 165, 233, 0.1); /* Sombra ligeramente azulada */
+    animation: aparecerSuave 0.5s ease-out forwards; /* Animación de entrada de la tarjeta */
+}
+
+/* --- Específico para el Login --- */
+.login-card {
+    max-width: 360px;
+    margin: 10vh auto; /* El 'auto' asegura que esté centrado horizontalmente */
+    background: var(--container-bg);
+    padding: 40px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--accent); /* Detalle azul cielo en la parte superior */
+    box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.15); /* Sombra un poco más pronunciada */
+    text-align: center;
+    animation: aparecerSuave 0.5s ease-out forwards; /* Animación de entrada de la tarjeta */
+}
+
+/* --- TIPOGRAFÍA --- */
+h2 {
+    color: var(--text-main);
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+}
+
+/* --- FORMULARIOS (Inputs) --- */
+input {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 14px;
+    color: var(--text-main);
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    width: 100%; /* Asegura que no se salgan de la tarjeta */
+    margin-bottom: 15px; /* Separación entre inputs */
+}
+
+input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2); /* Resplandor azul cielo al escribir */
+}
+
+/* --- BOTONES --- */
+button {
+    background-color: var(--accent) !important; /* Color azul cielo principal */
+    color: white !important;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%; /* Botones anchos por defecto en login */
+}
+
+/* Si tienes botones en estudiantes que no quieres que sean del ancho completo */
+.contenedor button {
+    width: auto; 
+}
+
+button:hover {
+    background-color: var(--accent-hover) !important; /* Azul más oscuro al pasar el mouse */
+    transform: translateY(-1px);
+}
+
+/* Botón de cerrar sesión específico */
+button[onclick="cerrarSesion()"] {
+    background-color: #ef4444 !important; /* Rojo minimalista */
+}
+button[onclick="cerrarSesion()"]:hover {
+    background-color: #dc2626 !important;
+}
+
+/* --- TABLAS MINIMALISTAS --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+th, td {
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    color: var(--accent-hover); /* Títulos de la tabla en azul cielo oscuro */
+    font-weight: 600;
+    background-color: #f8fafc; /* Un fondo levísimo para diferenciar la cabecera */
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: #f0f9ff; /* Efecto hover azul cielo al pasar el mouse por las filas */
+}
+
+/* --- MENSAJES DE ERROR --- */
+.error-msg { 
+    color: #ef4444; 
+    margin-top: 5px; 
+    font-size: 13px; 
+    display: none; 
+}
+
+/* --- ANIMACIÓN DE TRANSICIÓN PARA EL CAMBIO DE PÁGINAS --- */
+@keyframes aparecerSuave {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Empieza un poco más abajo y transparente */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Sube a su posición final de forma natural */
+    }
+}
